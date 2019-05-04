@@ -1,5 +1,6 @@
 package com.example.autonoma.tarea;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,17 +25,20 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void login(View view) {
-                if(etUsuario.getText().toString().equals("admin") && etClave.getText().toString().equals("admin")){
-                    Toast.makeText(getApplicationContext(),
-                            "Redirecting...",Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
 
-                }
-                else{Toast.makeText(getApplicationContext(),
-                        "Wrong Credentials",Toast.LENGTH_SHORT).show();
-                }
-            }});
-    }}
+    if(etUsuario.getText().toString().equals("admin") &&
+            etClave.getText().toString().equals("admin")){
+        Toast.makeText(getApplicationContext(),
+                "Redirecting...",Toast.LENGTH_SHORT).show();
+        //
+        Intent intent = new Intent(
+                MainActivity.this,
+                ProfesoresActivity.class);
 
-
-
+        startActivity(intent);
+        }
+    }
+    });
+        }
+    }
